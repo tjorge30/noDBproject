@@ -1,9 +1,9 @@
-const artWork = [
+module.exports = [
     {
     id: 1, 
     title: 'Charlotte\'s Web',
     price: '$65.00', 
-    img: '/Users/tashajavalera/devmountain-wr10/unit-4/day-4/no-db-app/src/images/001.png', 
+    img: './images/001.png', 
     details:{
         quantity: 10,
         description: '13.5\" X 13.5\" Black floating frame',
@@ -13,7 +13,7 @@ const artWork = [
     id: 2, 
     title: 'Heart Strings',
     price: '$65.00', 
-    img: '/Users/tashajavalera/devmountain-wr10/unit-4/day-4/no-db-app/src/images/002.png', 
+    img: './images/002.png',
     details:{
         quantity: 10,
         description: '12.5\" X 15.5\" Black floating frame',
@@ -40,4 +40,3 @@ const artWork = [
     }
     }
 ]
-export default artWork
