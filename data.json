@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1, 
+        "title": "Charlotte's Web",
+        "price": "65.00", 
+        "img": "/../images/001.png", 
+        "details":{
+            "quantity": 10,
+            "description": "13.5\" X 13.5\" Black floating frame"
+        }
+    },
+    {
+        "id": 2, 
+        "title": "Heart Strings",
+        "price": "65.00", 
+        "img": "/../images/002.png",
+        "details":{
+            "quantity": 10,
+            "description": "12.5\" X 15.5\" Black floating frame"
+        }
+    },
+    {
+        "id": 3, 
+        "title": "Aurora Borealis",
+        "price": "65.00", 
+        "img": "/../images/003.png", 
+        "details":{
+            "quantity": 10,
+            "description": "13.5\" X 13.5\" Black floating frame"
+        }
+    },
+    {
+        "id": 4, 
+        "title": "Ice Lily",
+        "price": "65.00", 
+        "img": "/../images/004.png", 
+        "details":{
+            "quantity": 10,
+            "description": "11.5\" X 21.5\" Blue floating frame"
+        }
+    }
+]

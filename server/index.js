@@ -1,34 +1,21 @@
-const express = require('express')
+const express = require('express');
+const artworkCtrl = require('./controllers/artworkCtrl.js');
+const cartCtrl = require('./controllers/cartCtrl');
+
 const app = express();
 const port = 4000;
 
-const data = require('../artWork');
 
-//get is used for retrieving data.
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-});
+app.use(express.json());
 
-app.get('/', (req, res) => {
-    
-  });
+//artworkCtrl endpoint
+app.get('/api/display-art', artworkCtrl.displayArt);
 
-  //post is used for adding new data.
-  app.post('/', (req, res) => {
-    
-  });
-
-  //put is used for updated data.
-  app.put('/', (req, res) => {
-    
-  });
-
-  //delete is used to remove data.
-  app.delete('/', (req, res) => {
-    
-  });
+//cartCtrl endpoint
+app.delete('/api/display-title/:id', cartCtrl.clearCart);
+app.put('/api/display-title/:id', cartCtrl.changeQuantity);
+app.post('/api/display-title', cartCtrl.addToCart);
 
 app.listen(port, () => {
   console.log(`noDB app listening on port ${port}!`)
 });
-
