@@ -16,39 +16,23 @@
 .bodyArea {
   width: 100vw;
   height: 100vh;
-  
   display: flex;
-  flex-direction: row;
+  flex-flow: row;
 }
 
 .displayArea {
   width: 75vw;
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-flow: column;
-  
   
 }
 
 .artwork {
+  margin-top: 50px;
   width: 700px;
   height: 600px; 
+  padding: 20px;
 }
 
-
-.navSection {
- display: flex;
- justify-content: center;
- align-items: center;
-
-}
-
-.navSection button {
-
-  
-}
 
 /* .addToCart span {
 
@@ -58,17 +42,15 @@
 } */
 
 .cartArea {
+  margin-top: 100px;
   width: 25vw;
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  justify-content: space-between;
-  flex-direction: column;
+ 
   
 }
 
-.cartTitle {
- margin-top: 120px;
+/* .cartTitle {
+ margin-top: 0px;
 }
 
 .buyArea {
@@ -76,6 +58,6 @@ margin-bottom: 100px;
 display: flex;
 flex-direction: column;
 
-}
+} */
 
 

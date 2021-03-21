@@ -1,75 +1,75 @@
 
 import React, { Component } from 'react';
-import Nav from './Nav';
+// import express from 'express';
+import Cart from './Cart';
 
 
-
-
-class ArtWorkDisplay extends Component {
+ export default class ArtWorkDisplay extends Component {
     constructor() {
         super();
-        
         this.state = {
-            index: 0,
-        };
-
-        this.increase = this.increase.bind(this);
-        this.decrease = this.decrease.bind(this);
-
+            cart: []
+        }
         this.addToCart= this.addToCart.bind(this);
-         
+        this.clearCart= this.clearCart.bind(this);
     }
 
-    increase(){
-        if(this.state.index < this.props.art.length - 1){
-            this.setState({ index: this.state.index + 1 })
-        }
-    }
-    
-    decrease(){
-        if(this.state.index > 0){
-            this.setState({ index: this.state.index - 1 })
-        }
-    }
-
+//when button 'add to cart' is clicked add title of current art to cart array.
     addToCart(title) {
-        //when button 'add to cart' is clicked add title of current art to cart array.
         this.setState({
-            cart: [...this.props.cart, title]
+            cart: [...this.state.cart, title]  
         })
       }
-        
-    
+//when button 'purchase' is pushed the cart array is set to empty array.     
+      clearCart() {
+        this.setState({
+            cart: []
+        })
+      }
     
 
     render() {
-        console.log("props", this.props)
-        console.log(this.props.art)
-        let selectedArtwork = this.props.art.filter((el, i) => i === this.state.index ).map((el, i)=> {
-            return (
-                <div key = {i}>
-                    <img src = {el.img } alt = 'art' className ='artwork'/>
-                    <h6>{el.title} ${el.price}</h6>
-                    <h6>{el.details.description}</h6>
+// images being renderd
+        const artwork = this.props.art.map((el, index) => {
+            return <img key = {index} alt = 'art' src = {el.img} className ='artwork' onClick={() => this.addToCart(el.title)}/>
+                // <div key = {el.title}>
                     
-                </div>
-            
-            )
+                //     <h6>{el.title} ${el.price}</h6>
+                //     <h6>{el.details.description}</h6> 
+                // </div>   
         })
-        // console.log(selectedArtwork)
+
         return (
-            <div > 
-                {selectedArtwork}
-                <button onClick={() => console.log(selectedArtwork)}>add to cart</button>
-                <div className="navSection">
-                <Nav increase={this.increase} decrease={this.decrease} />
+            <div className="bodyArea" >
+                <div className='displayArea'>
+                    {artwork}
                 </div>
+                
+                
+                <div className='cartArea'>
+
+                    <div className='cartTitle'>
+                    <h4>Your Cart</h4>
+                    </div>
+
+                    <div className='artInCart'>
+                    <Cart cartList = {this.state.cart}/>
+                    </div>
+
+                    <div className='buyArea'>
+                    <span>total $0.00</span>
+                    </div>
+
+                    <div>
+                        <button onClick={this.clearCart}>PURCHASE</button>
+                    </div>
+
+                </div>
+
             </div>
-        )
+        );
  
     }   
     
 }
-
-export default ArtWorkDisplay;
  
