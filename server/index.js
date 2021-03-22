@@ -12,9 +12,9 @@ app.use(express.json());
 app.get('/api/display-art', artworkCtrl.displayArt);
 
 //cartCtrl endpoint
-app.delete('/api/display-title/:id', cartCtrl.clearCart);
+app.delete('/api/display-title/:id', cartCtrl.deleteOutOfStock);
 app.put('/api/display-title/:id', cartCtrl.changeQuantity);
-app.post('/api/display-title', cartCtrl.addToCart);
+// app.post('/api/display-title', cartCtrl.addToCart);
 
 app.listen(port, () => {
   console.log(`noDB app listening on port ${port}!`)

@@ -2,7 +2,7 @@
     {
         "id": 1, 
         "title": "Charlotte's Web",
-        "price": "65.00", 
+        "price": 65, 
         "img": "/../images/001.png", 
         "details":{
             "quantity": 10,
@@ -12,7 +12,7 @@
     {
         "id": 2, 
         "title": "Heart Strings",
-        "price": "65.00", 
+        "price": 65, 
         "img": "/../images/002.png",
         "details":{
             "quantity": 10,
@@ -22,7 +22,7 @@
     {
         "id": 3, 
         "title": "Aurora Borealis",
-        "price": "65.00", 
+        "price": 65, 
         "img": "/../images/003.png", 
         "details":{
             "quantity": 10,
@@ -32,11 +32,13 @@
     {
         "id": 4, 
         "title": "Ice Lily",
-        "price": "65.00", 
+        "price": 65, 
         "img": "/../images/004.png", 
         "details":{
-            "quantity": 10,
+            "quantity": 0,
             "description": "11.5\" X 21.5\" Blue floating frame"
         }
     }
 ]
+
+

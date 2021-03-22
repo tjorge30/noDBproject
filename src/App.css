@@ -14,6 +14,7 @@
 }
 
 .bodyArea {
+  padding:20px;
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -23,7 +24,7 @@
 .displayArea {
   width: 75vw;
   height: 100vh;
-  
+  padding-left: 80px;
 }
 
 .artwork {

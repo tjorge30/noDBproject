@@ -2,41 +2,75 @@
 import React, { Component } from 'react';
 // import express from 'express';
 import Cart from './Cart';
+import axios from 'axios';
 
 
  export default class ArtWorkDisplay extends Component {
     constructor() {
         super();
         this.state = {
-            cart: []
+            cart: [],
+            total: 0,
         }
-        this.addToCart= this.addToCart.bind(this);
-        this.clearCart= this.clearCart.bind(this);
     }
 
 //when button 'add to cart' is clicked add title of current art to cart array.
-    addToCart(title) {
+    addToCart = (title) => {
         this.setState({
             cart: [...this.state.cart, title]  
         })
+        
       }
+
+    addToTotal = (price) => {
+        let sum = this.state.total + price
+        this.setState({
+            total: sum
+        })
+    }
+
+    updateQuantity = (id) => {
+        axios.put(`/api/display-title/:${id}`)
+            .then(res => { 
+                console.log(res.data);
+                    axios.delete(`/api/display-title/:${id}`)
+                        .then(res => { 
+                            console.log(res.data);
+                        })
+            })
+        .catch(err => console.log(err));
+
+    }
 //when button 'purchase' is pushed the cart array is set to empty array.     
       clearCart() {
         this.setState({
-            cart: []
+            cart: [],
+            total: 0
         })
       }
     
 
     render() {
-// images being renderd
+//images being renderd
         const artwork = this.props.art.map((el, index) => {
-            return <img key = {index} alt = 'art' src = {el.img} className ='artwork' onClick={() => this.addToCart(el.title)}/>
-                // <div key = {el.title}>
-                    
-                //     <h6>{el.title} ${el.price}</h6>
-                //     <h6>{el.details.description}</h6> 
-                // </div>   
+            return (
+                <div key = {index}>
+                    <ul>
+                        <li><img alt = 'art' src = {el.img} className ='artwork' 
+                        onClick={() => {
+                        this.addToCart(el.title);
+                        this.addToTotal(el.price);
+                        this.updateQuantity(el.id)
+                        }}/>
+                        </li>
+                        <li>{el.details.description}</li>
+                        <li>{el.title}</li>
+                        <li>${el.price}</li>
+                        <li>Qty: {el.details.quantity}</li>
+
+                    </ul>
+                </div>
+        )   
         })
 
         return (
@@ -57,7 +91,7 @@ import Cart from './Cart';
                     </div>
 
                     <div className='buyArea'>
-                    <span>total $0.00</span>
+                    <span>${this.state.total}</span>
                     </div>
 
                     <div>
@@ -68,8 +102,6 @@ import Cart from './Cart';
 
             </div>
         );
- 
-    }   
-    
+    }    
 }
  
