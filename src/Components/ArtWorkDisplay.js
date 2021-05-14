@@ -31,7 +31,7 @@ import axios from 'axios';
         })
     }
 
-    clearCart() {
+    clearCart= () => {
         this.setState({
             cart: [],
             total: 0

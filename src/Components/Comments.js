@@ -41,7 +41,7 @@ export default class App extends Component {
   render() {
       const commentsList = this.state.comments.map((el, i) => {
           return(
-              <li key = {i} className='single_comment'>{el.comment}</li>      
+              <li key={i} className='single_comment'>{el.comment}</li>      
           )
       })
     
@@ -50,7 +50,7 @@ export default class App extends Component {
           <div className='input_area'>
             <h1>Leave a Comment for the Artist</h1>
             <textarea name='text' value={this.state.text} onChange={e => this.setState({text: e.target.value})}></textarea>
-            <button onClick={e => this.handelPost(e)}>submit</button>
+            <button onClick={e => this.handelPost(e)}>SUBMIT</button>
             <ul>{commentsList}</ul>
           </div>
         </div>

@@ -10,18 +10,11 @@ export default class Cart extends Component {
             
         };
     }
-        //when button 'purchase' is pushed the cart array is set to empty array.     
-    //   clearCart = () => {
-    //     this.setState({
-    //         cart: [],
-    //         total: 0
-    //     })
-    //   }
 
    
     render() {
-        let updateCart = this.props.cartList.map(el => {
-                return <li>{el}</li>
+        let updateCart = this.props.cartList.map((el, i) => {
+                return <li key={i} >{el}</li>
         })
         return(
             <div className='artInCart'>

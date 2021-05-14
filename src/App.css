@@ -2,6 +2,24 @@ ul, li {
   list-style: none;
 }
 
+button {
+  padding: 10px;
+  font-size: 15px;
+  color: white;
+  background-color: black;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+}
+
+button:hover {
+  color: black;
+  background-color: aquamarine;
+  box-shadow:  4px 4px 15px rgba(0, 0, 0, 0.295);
+}
+
 .App {
   text-align: center;
   
