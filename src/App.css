@@ -1,5 +1,10 @@
+ul, li {
+  list-style: none;
+}
+
 .App {
   text-align: center;
+  
 }
 
 .nav {
@@ -14,15 +19,17 @@
 }
 
 .bodyArea {
+  width: 100vw;
   padding:20px;
   width: 100vw;
   height: 100vh;
   display: flex;
   flex-flow: row;
+  
 }
 
 .displayArea {
-  width: 75vw;
+  width: 73vw;
   height: 100vh;
   padding-left: 80px;
 }
@@ -35,6 +42,44 @@
 }
 
 
+/* Comments.js */
+.comments_pg{
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.input_area{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+  .input_area > textarea {
+    width: 450px;
+    height: 150px;
+    margin: 50px;
+    box-shadow:  4px 4px 15px rgba(0, 0, 0, 0.295);
+  }
+
+
+
+.single_comment{
+  align-self: center;
+  margin: 30px;
+  padding: 60px;
+  background-color: rgba(231, 231, 231, 0.849);
+  box-shadow:  4px 4px 15px rgba(0, 0, 0, 0.295);
+
+}
+
+
+
+/* Cart.js */
 /* .addToCart span {
 
   background-image: url('./images/addToCartImg.png');
@@ -44,9 +89,8 @@
 
 .cartArea {
   margin-top: 100px;
-  width: 25vw;
+  width: 20vw;
   height: 100vh;
- 
   
 }
 

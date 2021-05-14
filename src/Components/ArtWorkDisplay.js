@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
-// import express from 'express';
 import Cart from './Cart';
+import Comments from './Comments';
 import axios from 'axios';
 
 
@@ -13,6 +13,8 @@ import axios from 'axios';
             total: 0,
         }
     }
+
+    
 
 //when button 'add to cart' is clicked add title of current art to cart array.
     addToCart = (title) => {
@@ -29,6 +31,13 @@ import axios from 'axios';
         })
     }
 
+    clearCart() {
+        this.setState({
+            cart: [],
+            total: 0
+        })
+    }
+
     updateQuantity = (id) => {
         axios.put(`/api/display-title/:${id}`)
             .then(res => { 
@@ -41,13 +50,8 @@ import axios from 'axios';
         .catch(err => console.log(err));
 
     }
-//when button 'purchase' is pushed the cart array is set to empty array.     
-      clearCart() {
-        this.setState({
-            cart: [],
-            total: 0
-        })
-      }
+
+      
     
 
     render() {
@@ -77,6 +81,9 @@ import axios from 'axios';
             <div className="bodyArea" >
                 <div className='displayArea'>
                     {artwork}
+                    <div>
+                        <Comments/>
+                    </div>
                 </div>
                 
                 
@@ -99,7 +106,6 @@ import axios from 'axios';
                     </div>
 
                 </div>
-
             </div>
         );
     }    

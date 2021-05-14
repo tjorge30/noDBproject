@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ArtWorkDisplay from './Components/ArtworkDisplay';
+import ArtWorkDisplay from './Components/ArtWorkDisplay';
 import axios from 'axios';
 import './App.css';
 

@@ -1,21 +1,24 @@
 const express = require('express');
-const artworkCtrl = require('./controllers/artworkCtrl.js');
-const cartCtrl = require('./controllers/cartCtrl');
+const { displayArt,likePic } = require("./controllers/artworkCtrl");
+const { getComments, postComment } = require('./controllers/commentsCtrl');
+const { deleteOutOfStock, changeQuantity } = require('./controllers/cartCtrl');
 
 const app = express();
-const port = 4000;
-
+// const port = 4000;
 
 app.use(express.json());
 
-//artworkCtrl endpoint
-app.get('/api/display-art', artworkCtrl.displayArt);
+//artworkCtrl endpoints
+app.get('/api/display-art', displayArt);
+app.post('/api/display-title', likePic);
 
-//cartCtrl endpoint
-app.delete('/api/display-title/:id', cartCtrl.deleteOutOfStock);
-app.put('/api/display-title/:id', cartCtrl.changeQuantity);
-// app.post('/api/display-title', cartCtrl.addToCart);
+//commentsCtrl endpoints
+app.get('/api/comments', getComments);
+app.post('/api/comments', postComment);
 
-app.listen(port, () => {
-  console.log(`noDB app listening on port ${port}!`)
-});
+//cartCtrl endpoints
+app.delete('/api/display-title/:id', deleteOutOfStock);
+app.put('/api/display-title/:id', changeQuantity);
+
+
+app.listen(4000, () => {console.log(`Listening on port 4000`)});
